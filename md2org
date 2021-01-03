@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+if [ "$1" = "h" ]
+then
+    echo "Ejecuta el siguiente comando de ejemplo;"
+    echo "  /usr/bin/md2org archivo.md"
+exit
+fi
+
+
+pandoc -t org $1 --columns 10000 | sed -E "/^[[:space:]]+:/ d"
